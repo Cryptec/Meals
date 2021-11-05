@@ -1,5 +1,14 @@
 .App {
-  text-align: center;
+ 
+}
+
+.AddButton {
+  margin: right;
+  border: 3px solid #73AD21;
+  padding: 10px;
+  cursor: pointer;
+  position: fixed;
+  z-index: 3;
 }
 
 .Home {
@@ -18,4 +27,18 @@
 
 .displayContainer {
   height: 60vh;
+}
+
+#cookbook {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: gray;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 110px;
+  color: aliceblue;
 }
