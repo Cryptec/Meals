@@ -10,7 +10,6 @@ class CookBook extends Component {
         super()
         this.state = {
           meal: "",
-          status: 'Submit',
           isActive: false,
         }
       }
@@ -61,7 +60,7 @@ class CookBook extends Component {
             this.setState({
                 meal: '',
             })
-            console.log('Form sent')
+            console.log('Meal added')
           } else if (response.data.answer === 'error') {
             console.log('Error')  
         }

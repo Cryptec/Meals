@@ -73,7 +73,7 @@ router.post("/recipes/", (req, res, next) => {
         return;
       }
       res.json({
-        "answer": "success",
+        "answer": "Success",
         "data": row
       })
     });
