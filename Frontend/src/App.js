@@ -44,9 +44,9 @@ toggleNav = () => {
   return (
 
     <div className="App">
+    <div className="AddButton" onClick={this.toggleNav}>+</div>
       <div className="Home">
       <CookBook />
-      <div className="AddButton" onClick={this.toggleNav}>+</div>
       <div className="displayContainer">
       {this.state.isActive ? <p className="displayText">{displayMeal}</p>  : null }
       </div>
