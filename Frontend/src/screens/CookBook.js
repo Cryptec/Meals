@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 import '../App.css'
+import Table from '../components/Table';
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
 
@@ -11,6 +12,7 @@ class CookBook extends Component {
         this.state = {
           meal: "",
           isActive: false,
+          count: 0
         }
       }
 
@@ -19,11 +21,13 @@ class CookBook extends Component {
 
         return (
             <div id="cookbook">
+            <Table key={this.state.count}/>
+            <div className="input">
             <form onSubmit={this.handleSubmit.bind(this)} method='POST'>
 
             <br />
             <input
-              className='form-group-signup'
+              className="inputfield"
               onChange={this.handleChange.bind(this)}
               id='meal'
               value={this.state.meal}
@@ -34,6 +38,7 @@ class CookBook extends Component {
           <button className='LoginButton'>Add</button>
 
         </form>
+        </div>
         </div>
         )
     }
@@ -47,7 +52,8 @@ class CookBook extends Component {
     }
     
     handleSubmit(event) {
-    
+      event.preventDefault();
+
         axios({
           method: 'POST',
           url: `${API_ENDPOINT}/api/recipes`,
@@ -59,6 +65,7 @@ class CookBook extends Component {
           if (response.data.answer === 'Success') {
             this.setState({
                 meal: '',
+                count: this.state.count + 1 
             })
             console.log('Meal added')
           } else if (response.data.answer === 'error') {

@@ -1,6 +1,3 @@
-.App {
- 
-}
 
 .AddButton {
   padding: 10px;
@@ -42,4 +39,12 @@
   transition: 0.5s;
   padding-top: 110px;
   color: aliceblue;
+}
+
+.input {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  bottom: 0%;
+  position: relative;
 }
