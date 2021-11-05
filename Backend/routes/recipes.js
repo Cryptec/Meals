@@ -3,18 +3,18 @@ var db = require('../Database');
 
 router.post("/recipes/", (req, res, next) => {
     var errors = []
-    if (!req.body.Beschreibung) {
-      errors.push("No Beschreibung specified");
+    if (!req.body.Meal) {
+      errors.push("No Meal specified");
     }
     if (errors.length) {
       res.status(400).json({ "error": errors.join(",") });
       return;
     }
     var data = {
-      Beschreibung: req.body.Beschreibung,
+      Meal: req.body.Meal,
     }
-    var sql = 'INSERT INTO Meals (Beschreibung) VALUES (?)'
-    var params = [data.Beschreibung]
+    var sql = 'INSERT INTO Meals (meal) VALUES (?)'
+    var params = [data.Meal]
     
     db.run(sql, params, function (err, result) {
       if (err) {
@@ -29,8 +29,8 @@ router.post("/recipes/", (req, res, next) => {
 
   router.patch("/recipes/", (req, res, next) => {
     var reqBody = req.body;
-    db.run(`UPDATE Meals set Beschreibung = ? WHERE Meals_id = ?`,
-        [reqBody.Beschreibung, reqBody.Teilebestand_id],
+    db.run(`UPDATE Meals set meal = ? WHERE Meals_id = ?`,
+        [reqBody.Meal, reqBody.Meals_id],
         function (err, result) {
             if (err) {
                 res.status(400).json({ "error": res.message })
