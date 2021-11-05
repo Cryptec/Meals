@@ -28,11 +28,11 @@ generateMeal = () => {
     <div className="App">
       <div className="Home">
 
-      <div>
-      {this.state.isActive ? <p className="errorText">{displayMeal}</p>  : null }
+      <div className="displayContainer">
+      {this.state.isActive ? <p className="displayText">{displayMeal}</p>  : null }
       </div>
 
-        <button onClick={this.generateMeal} >Create</button>
+        <button onClick={this.generateMeal} className="displayButton">Create</button>
 
       </div>
     </div>
