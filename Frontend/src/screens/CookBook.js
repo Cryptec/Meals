@@ -9,7 +9,7 @@ class CookBook extends Component {
     constructor() {
         super()
         this.state = {
-          Meal: '',
+          meal: "",
           status: 'Submit',
           isActive: false,
         }
@@ -27,7 +27,7 @@ class CookBook extends Component {
               className='form-group-signup'
               onChange={this.handleChange.bind(this)}
               id='meal'
-              value={this.state.Meal}
+              value={this.state.meal}
               type='text'
               required
             />
@@ -39,6 +39,14 @@ class CookBook extends Component {
         )
     }
 
+    handleChange(event) {
+        const field = event.target.id
+        if (field === 'meal') {
+          this.setState({ meal: event.target.value })
+
+        }
+    }
+    
     handleSubmit(event) {
     
         axios({
@@ -46,26 +54,18 @@ class CookBook extends Component {
           url: `${API_ENDPOINT}/api/recipes`,
           headers: { 'Content-Type': 'application/json' },
           data: {
-            Meal: this.state.Meal,
+            meal: this.state.meal,
           },
         }).then((response) => {
           if (response.data.answer === 'Success') {
             this.setState({
-                Meal: '',
+                meal: '',
             })
             console.log('Form sent')
           } else if (response.data.answer === 'error') {
             console.log('Error')  
         }
       })}
-
-      handleChange(event) {
-        const field = event.target.id
-        if (field === 'meal') {
-          this.setState({ Meal: event.target.value })
-
-        }
-    }
 }
 
 export default CookBook

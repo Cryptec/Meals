@@ -3,7 +3,7 @@ var db = require('../Database');
 
 router.post("/recipes/", (req, res, next) => {
     var errors = []
-    if (!req.body.Meal) {
+    if (!req.body.meal) {
       errors.push("No Meal specified");
     }
     if (errors.length) {
@@ -11,10 +11,10 @@ router.post("/recipes/", (req, res, next) => {
       return;
     }
     var data = {
-      Meal: req.body.Meal,
+      meal: req.body.meal,
     }
     var sql = 'INSERT INTO Meals (meal) VALUES (?)'
-    var params = [data.Meal]
+    var params = [data.meal]
     
     db.run(sql, params, function (err, result) {
       if (err) {

@@ -13,11 +13,11 @@ let db = new sqlite3.Database(DBSOURCE, (err) => {
         db.run(`CREATE TABLE Meals (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             meal text UNIQUE, 
-            CONSTRAINT meal_unique UNIQUE (meal),
+            CONSTRAINT meal_unique UNIQUE (meal)
             )`,
             (err) => {
                 if (err) {
-                    // Table already created
+                    console.log(err)
                 } else {
                     console.log("First start!")
                 }
