@@ -31,7 +31,7 @@ async componentDidMount() {
       this.setState({ isError: true, isLoading: false })
     }
   $(".AddButton").click(function () {
-    if ($(this).css("transform") == 'none') {
+    if ($(this).css("transform") === 'none') {
       $(this).css("transform", "rotate(45deg)");
     } else {
       $(this).css("transform", "");
@@ -64,7 +64,7 @@ toggleClose = () => {
 toggleNav = () => {
   this.state.nav ? this.toggleClose() : this.toggleOpen();
   $(".AddButton").click(function () {
-    if ($(this).css("transform") == 'none') {
+    if ($(this).css("transform") === 'none') {
       $(this).css("transform", "rotate(45deg)");
     } else {
       $(this).css("transform", "");
