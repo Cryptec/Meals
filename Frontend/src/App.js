@@ -1,27 +1,47 @@
 import React, { Component } from 'react'
-import generate from './components/getMeals'
 import './App.css';
+import CookBook from './screens/CookBook';
 
 import { openCookBook, closeCookBook } from './utils/handler'
-import CookBook from './screens/CookBook';
+
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
         answerDenied: "Denied",
-        displayMeal: "",
         isActive: false,
-        nav: true
+        nav: true,
+        meal: [],
+        isLoading: false,
+        isError: false
     };
 }
 
-generateMeal = () => {
-   this.setState({
-    displayMeal: generate(),
-    isActive: true
-   })
-}
+
+async componentDidMount() {
+    this.setState({ isLoading: true })
+    const response = await fetch(`${API_ENDPOINT}/api/randomrecipes`)
+    if (response.ok) {
+      const meal = await response.json()
+      this.setState({ meal, isLoading: false })
+    } else {
+      this.setState({ isError: true, isLoading: false })
+    }
+  }
+
+getRecipe = async () => {
+    this.setState({ isLoading: true })
+    const response = await fetch(`${API_ENDPOINT}/api/randomrecipes`)
+    if (response.ok) {
+      const meal = await response.json()
+      this.setState({ meal, isLoading: false, isActive: true })
+    } else {
+      this.setState({ isError: true, isLoading: false })
+    }
+  }
+
 
 toggleOpen = () => {
   openCookBook()
@@ -37,26 +57,48 @@ toggleNav = () => {
   this.state.nav ? this.toggleClose() : this.toggleOpen();
 }
 
+  randomMeal = () => {
+    return this.state.meal.map(user => {
+      return (
+        <div key={user.id}>
+          <div>{user.meal}</div>
+        </div>
+      )
+    })
+  }
+
+  handler = () => {
+    const { meal, isError } = this.state
+
+    if (isError) {
+      return <div>Error</div>
+    }
+    return meal.length > 0
+      ? (
+        <>
+            {this.randomMeal()}
+        </>
+      ) : (
+        <div>
+          No Meals.
+        </div>
+      )
+  }
+
   render() {
 
-    let displayMeal = this.state.displayMeal
-
-  return (
-
+    return (
     <div className="App">
     <div className="AddButton" onClick={this.toggleNav}>+</div>
-      <div className="Home">
-      <CookBook />
-      <div className="displayContainer">
-      {this.state.isActive ? <p className="displayText">{displayMeal}</p>  : null }
-      </div>
+        <CookBook />
+        <div className="randommeal">
+          {this.handler()}
+        </div>
+        <button onClick={this.getRecipe} className="displayButton">Create</button>
 
-        <button onClick={this.generateMeal} className="displayButton">Create</button>
-
-      </div>
     </div>
-  );
-  
+      
+    )
 }
 
 

@@ -35,7 +35,7 @@ class CookBook extends Component {
               required
             />
 
-          <button className='LoginButton'>Add</button>
+          <button className='addButton'>Add</button>
 
         </form>
         </div>

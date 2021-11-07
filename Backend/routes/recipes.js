@@ -51,6 +51,18 @@ router.post("/recipes/", (req, res, next) => {
         });
   });
 
+    router.get("/randomrecipes", (req, res, next) => {
+      var sql = "SELECT * FROM Meals ORDER BY RANDOM() LIMIT 1;"
+    var params = []
+    db.all(sql, params, (err, rows) => {
+      if (err) {
+        res.status(400).json({ "error": err.message });
+        return;
+      }
+      res.status(200).json(rows);
+    });
+  });
+
   router.get("/recipes", (req, res, next) => {
     var sql = "select * from Meals ORDER BY id DESC"
     var params = []

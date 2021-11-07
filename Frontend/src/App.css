@@ -9,7 +9,7 @@
   font-size: calc(10px + 5vmin);
 }
 
-.Home {
+.App {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -20,11 +20,23 @@
 }
 
 .displayButton {
-  border: none;
+  width: 140px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: transparent;
+  border-color: yellow;
+  color: yellow;
+  position: absolute;
+  bottom: 30px
 }
 
-.displayContainer {
-  height: 60vh;
+.randommeal {
+  position: absolute;
+  bottom: 45%;
+  font-size: calc(10px + 5vmin);
+  padding: 10px;
+  text-align: center;
+
 }
 
 #cookbook {
@@ -37,14 +49,51 @@
   background-color: gray;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 110px;
   color: aliceblue;
 }
 
 .input {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  bottom: 0%;
-  position: relative;
+  position: absolute;
+  width: 100%;
+  padding: 15px;
+  bottom: 10px
+}
+
+.addButton {
+  width: 70px;
+  height: 29px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: none;
+  background-color: rgb(167, 139, 141);
+  color: white;
+}
+
+.inputfield {
+  width: calc(100% - 110px);
+  height: 27px;
+  border: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.delButton {
+  width: 20px;
+  cursor: pointer;
+  background-color: rgb(167, 139, 141);
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  padding: 15px;
+  padding-top: 100px;
+}
+
+.tableData {
+  width: calc(100% - 20px );
+  border-bottom: 1px solid;
 }

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import '../App.css'
 
 const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT
 
@@ -37,14 +38,14 @@ render() {
 
     return meal.length > 0
       ? (
-        <table className="table" id="tblData">
+        <table className="table">
 
           <tbody>
             {this.renderTableRows()}
           </tbody>
         </table>
       ) : (
-        <div>
+      <div className="table">
           No Meals.
       </div>
       )
@@ -55,7 +56,7 @@ renderTableRows = () => {
   return this.state.meal.map(user => {
       return (
         <tr key={user.id}>
-          <td>{user.meal}</td>
+          <td className="tableData">{user.meal}</td>
           <td className="delButton" onClick={() => this.deleteTableRow(user.id)}>&#10005;</td>
         </tr>
       )
