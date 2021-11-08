@@ -9,13 +9,12 @@
 }
 
 .AddMealButton {
-  padding-right: 10px;
   cursor: pointer;
   position: fixed;
-  right: 10px;
+  right: 20px;
   z-index: 3;
   color: white;
-  font-size: calc(25px + 6vmin);
+  font-size: calc(25px + 8vmin);
   -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
     -o-transition-duration: 0.5s;
@@ -30,6 +29,7 @@
   width: 160px;
   height: 45px;
   border-radius: 22.5px;
+  cursor: pointer;
   background-color: transparent;
   border-color: yellow;
   color: yellow;
@@ -43,6 +43,7 @@
   font-size: calc(10px + 5vmin);
   padding: 10px;
   text-align: center;
+  font-family: 'YellowTail', sans-serif;
 
 }
 
@@ -79,9 +80,9 @@
 .addButton {
   width: 70px;
   height: 32px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 0 5px 5px 0;
   font-size: 17px;
+  box-sizing: border-box;
   border: none;
   background-color: rgb(167, 139, 141);
   color: white;
@@ -91,11 +92,11 @@
 }
 
 .inputfield {
-  width: calc(100% - 85px);
-  height: 30px;
+  width: calc(100vw - 100px);
+  box-sizing: border-box;
+  height: 32px;
   border: none;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-radius: 5px 0 0 5px;
   position: absolute;
   font-size: 17px;
   bottom: 60px;
@@ -123,4 +124,16 @@
 .tableData {
   width: calc(100% - 20px );
   border-bottom: 1px solid;
+}
+
+@media all and (max-width: 680px) {
+  
+ .topSection {
+  height: 60px;
+  }  
+
+  .AddMealButton {
+  right: 30px;
+  top: 15px;
+  }
 }

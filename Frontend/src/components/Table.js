@@ -29,11 +29,11 @@ render() {
   const { meal, isLoading, isError } = this.state
 
     if (isLoading) {
-      return <div>Loading...</div>
+      return <div className="tableContainer">Loading...</div>
     }
 
     if (isError) {
-      return <div>Error</div>
+      return <div className="tableContainer">Error</div>
     }
 
     return meal.length > 0
