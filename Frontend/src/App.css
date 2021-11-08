@@ -15,7 +15,7 @@
   right: 10px;
   z-index: 3;
   color: white;
-  font-size: calc(10px + 10vmin);
+  font-size: calc(25px + 6vmin);
   -webkit-transition-duration: 0.5s;
     -moz-transition-duration: 0.5s;
     -o-transition-duration: 0.5s;
@@ -78,9 +78,10 @@
 
 .addButton {
   width: 70px;
-  height: 29px;
+  height: 32px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+  font-size: 17px;
   border: none;
   background-color: rgb(167, 139, 141);
   color: white;
@@ -91,11 +92,12 @@
 
 .inputfield {
   width: calc(100% - 85px);
-  height: 27px;
+  height: 30px;
   border: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
   position: absolute;
+  font-size: 17px;
   bottom: 60px;
 }
 
