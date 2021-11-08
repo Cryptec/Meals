@@ -9,7 +9,7 @@
 }
 
 .AddMealButton {
-  padding: 10px;
+  padding-right: 10px;
   cursor: pointer;
   position: fixed;
   right: 10px;
@@ -54,16 +54,26 @@
   top: 0;
   left: 0;
   background-color: gray;
-  overflow-x: hidden;
+  overflow: auto;
   transition: 0.5s;
   color: aliceblue;
+
+}
+
+.topSection {
+  position: sticky;
+  height: 80px;
+  padding: 15px;
+  top: 0px;
+  background-color: gray;
 }
 
 .input {
-  position: absolute;
-  width: 100%;
+  position: sticky;
+  height: 100px;
   padding: 15px;
-  bottom: 10px
+  bottom: 0px;
+  background-color: gray;
 }
 
 .addButton {
@@ -74,14 +84,19 @@
   border: none;
   background-color: rgb(167, 139, 141);
   color: white;
+  position: absolute;
+  bottom: 60px;
+  right: 15px;
 }
 
 .inputfield {
-  width: calc(100% - 110px);
+  width: calc(100% - 85px);
   height: 27px;
   border: none;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  position: absolute;
+  bottom: 60px;
 }
 
 .delButton {
@@ -97,9 +112,12 @@
 .table {
   width: 100%;
   padding: 15px;
-  padding-top: 100px;
+  padding-top: 10px;
 }
 
+.tableContainer {
+  min-height: calc(100vh - 240px);
+}
 .tableData {
   width: calc(100% - 20px );
   border-bottom: 1px solid;

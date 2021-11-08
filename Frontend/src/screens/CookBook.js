@@ -21,8 +21,8 @@ class CookBook extends Component {
 
         return (
             <div id="cookbook">
-            
-            <Table key={this.state.count} className="topSection"/>
+            <div className="topSection"></div>
+            <Table key={this.state.count} />
 
             <div className="input">
             <form onSubmit={this.handleSubmit.bind(this)} method='POST'>

@@ -38,12 +38,14 @@ render() {
 
     return meal.length > 0
       ? (
+        <div className="tableContainer">
         <table className="table">
 
           <tbody>
             {this.renderTableRows()}
           </tbody>
         </table>
+        </div>
       ) : (
       <div className="table">
           No Meals.
