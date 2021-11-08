@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import $ from 'jquery'
 import './App.css';
 import CookBook from './screens/CookBook';
 
@@ -30,13 +29,6 @@ async componentDidMount() {
     } else {
       this.setState({ isError: true, isLoading: false })
     }
-  $(".AddButton").click(function () {
-    if ($(this).css("transform") === 'none') {
-      $(this).css("transform", "rotate(45deg)");
-    } else {
-      $(this).css("transform", "");
-    }
-  });
   }
 
 getRecipe = async () => {
@@ -63,13 +55,6 @@ toggleClose = () => {
 
 toggleNav = () => {
   this.state.nav ? this.toggleClose() : this.toggleOpen();
-  $(".AddButton").click(function () {
-    if ($(this).css("transform") === 'none') {
-      $(this).css("transform", "rotate(45deg)");
-    } else {
-      $(this).css("transform", "");
-    }
-  });
 }
 
   randomMeal = () => {
@@ -106,7 +91,8 @@ toggleNav = () => {
     return (
       
     <div className="App">
-    <div className="AddButton" onClick={this.toggleNav}>+</div>
+    <div className="AddMealButton" id="AddMealButton" onClick={this.toggleNav}>+</div>
+
         <CookBook />
         <div className="randommeal">
           {this.handler()}
