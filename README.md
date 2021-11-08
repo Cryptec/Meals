@@ -18,5 +18,6 @@ followed by
 
 ### `node index.js`
 
+## Note:
 
 Simply add the "Website" to your Mobilephones Homescreen to use it as Webapp, or use the Website itself. 
