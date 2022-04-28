@@ -1,6 +1,6 @@
 This is a Web-Application for Randomly determine what is being cooked today.
 
-Annoyed by the girlfriend's daily questions, so I built this little tool for her.
+Annoyed from my wife's daily questions, so I built this little tool for her.
 
 ## In the Frontend directory, you can run:
 
